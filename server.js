@@ -1,14 +1,19 @@
 var express = require("express");
-var path = require("path");
-
-// Sets up the Express App
-// =============================================================
 var app = express();
-var PORT = process.env.PORT;
+var bodyParser = require ("body-parser");
+
+var PORT = process.env.PORT 
+
+var jsonParser = bodyParser.json()
+
+var urlencodedParser = bodyParser.unlencoded({ extended: false})
+
+appjson.use(bodyParser.json({type:"application/**"}))
+
+app.use(bodyParser.raw({ type: "application/VRDisplayEvent.custom-type"}))
 
 // Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(bodyParser.text({ type: "text/html"}))
 
 
 app.listen(PORT, function() {
